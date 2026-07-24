@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дневник Пчеловода ПРО — голосовой дневник для пасеки</title>
+<meta name="description" content="Офлайн голосовой дневник пчеловода с ИИ-ассистентом Маей. Записывайте наблюдения голосом прямо на пасеке — без интернета, без касаний экрана.">
+<style>
+  :root{
+    --parchment:#f4efe2; --ink:#2e2a24; --muted:#6b6459;
+    --honey:#e0a83a; --honey-dark:#c8901f; --card:#fbf8f0; --border:#e3dcc9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--parchment);color:var(--ink);line-height:1.6}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+  header{text-align:center;padding:64px 24px 40px}
+  .logo{width:72px;height:72px;margin:0 auto 20px;display:block}
+  h1{font-size:2.4rem;font-weight:normal;letter-spacing:.5px;margin-bottom:12px}
+  .tagline{font-size:1.25rem;color:var(--muted);max-width:600px;margin:0 auto 28px}
+  .cta{display:inline-block;background:var(--honey);color:#3a2e12;text-decoration:none;
+       font-weight:bold;padding:14px 36px;border-radius:32px;font-size:1.05rem;
+       transition:background .2s}
+  .cta:hover{background:var(--honey-dark)}
+  .cta.secondary{background:transparent;border:1.5px solid var(--border);color:var(--muted);margin-left:10px}
+  .note{font-size:.9rem;color:var(--muted);margin-top:14px}
+  section{padding:44px 0;border-top:1px solid var(--border)}
+  h2{font-size:1.6rem;font-weight:normal;margin-bottom:24px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+  .feat h3{font-size:1.15rem;font-weight:normal;margin-bottom:8px;color:var(--honey-dark)}
+  .feat p{font-size:.98rem;color:var(--muted)}
+  .shots{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .shot{width:200px;border-radius:20px;border:1px solid var(--border);
+        background:var(--card);object-fit:cover;display:block}
+  footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:.9rem}
+  footer a{color:var(--honey-dark)}
+  .privacy-line{max-width:640px;margin:0 auto 8px}
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип">
+    <polygon points="50,8 86,29 86,71 50,92 14,71 14,29" fill="#e0a83a" stroke="#c8901f" stroke-width="3"/>
+    <polygon points="50,26 70,38 70,62 50,74 30,62 30,38" fill="#fbf8f0"/>
+  </svg>
+  <h1>Дневник Пчеловода ПРО</h1>
+  <p class="tagline">Голосовой дневник пасеки с ИИ-ассистентом Маей. Работает офлайн — руки в перчатках, телефон в кармане, всё через голос.</p>
+  <a class="cta" href="#" id="rustore-link">Скачать в RuStore</a>
+  <div class="note">Приложение готовится к публикации. Ссылка появится здесь после релиза.</div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>Зачем это пчеловоду</h2>
+    <div class="grid">
+      <div class="feat">
+        <h3>Голос без касаний</h3>
+        <p>Надиктуйте наблюдение прямо у улья — «Мая» распознаёт речь и пишет в журнал. Экран трогать не нужно.</p>
+      </div>
+      <div class="feat">
+        <h3>Работает офлайн</h3>
+        <p>ИИ живёт на устройстве. На пасеке без связи всё работает: запись, вопросы, ответы голосом.</p>
+      </div>
+      <div class="feat">
+        <h3>Предупреждает о роении</h3>
+        <p>Анализирует тренды семьи и сигналит о риске роения заранее — до того, как рой улетит.</p>
+      </div>
+      <div class="feat">
+        <h3>Селекция и матки</h3>
+        <p>Рейтинг семей, родословная маток, поколения F0/F1/F2, журнал вывода — для тех, кто разводит.</p>
+      </div>
+      <div class="feat">
+        <h3>Документы</h3>
+        <p>Экспорт данных в CSV/Excel и выписка обработок для ветеринарной ревизии — в один тап.</p>
+      </div>
+      <div class="feat">
+        <h3>Ваши данные — ваши</h3>
+        <p>Ничего не уходит в облако. Записи, голос и фото остаются на телефоне.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Как это выглядит</h2>
+    <div class="shots">
+      <img class="shot" src="screenshots/home.png" alt="Главный экран — сводка по пасеке">
+      <img class="shot" src="screenshots/maya.png" alt="Чат с ассистентом Маей">
+      <img class="shot" src="screenshots/hive.png" alt="Карточка улья с историей событий">
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p class="privacy-line"><a href="privacy-ru.html">Политика конфиденциальности</a></p>
+  <p>Разработчик: Александр Музыч (самозанятый) · © 2026</p>
+  <p>По вопросам: <a href="mailto:beejournal.pro@yandex.ru">beejournal.pro@yandex.ru</a></p>
+</footer>
+
+</body>
+</html>
