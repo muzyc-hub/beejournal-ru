@@ -5,54 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Дневник Пчеловода ПРО — голосовой дневник для пасеки</title>
 <meta name="description" content="Офлайн голосовой дневник пчеловода с ИИ-ассистентом Маей. Записывайте наблюдения голосом прямо на пасеке — без интернета, без касаний экрана.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --parchment:#f4efe2; --ink:#2e2a24; --muted:#6b6459;
-    --honey:#e0a83a; --honey-dark:#c8901f; --card:#fbf8f0; --border:#e3dcc9;
+    --surface:#FBF8F0; --surface-low:#F4F0E8; --surface-container:#ECE7DA;
+    --outline:#B0A890; --outline-variant:#D6CFBA;
+    --ink:#1A1815; --ink-variant:#4A443C;
+    --primary:#2F8F47; --primary-ink:#FBF8F0;
+    --secondary:#7A6731; --secondary-container:#F0E3B9;
+    --tertiary:#2A6FDB; --error:#C8392E;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:Geist,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Georgia,'Times New Roman',serif;background:var(--parchment);color:var(--ink);line-height:1.6}
+  body{font-family:var(--sans);background:var(--surface);color:var(--ink);line-height:1.6}
   .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-variant)}
   header{text-align:center;padding:64px 24px 40px}
-  .logo{width:72px;height:72px;margin:0 auto 20px;display:block}
-  h1{font-size:2.4rem;font-weight:normal;letter-spacing:.5px;margin-bottom:12px}
-  .tagline{font-size:1.25rem;color:var(--muted);max-width:600px;margin:0 auto 28px}
-  .cta{display:inline-block;background:var(--honey);color:#3a2e12;text-decoration:none;
-       font-weight:bold;padding:14px 36px;border-radius:32px;font-size:1.05rem;
+  .logo{width:72px;height:72px;margin:0 auto 20px;display:block;border-radius:20px}
+  h1{font-family:var(--serif);font-weight:500;letter-spacing:-.5px;font-size:2.8rem;margin-bottom:14px}
+  .tagline{font-size:1.15rem;color:var(--ink-variant);max-width:600px;margin:0 auto 28px}
+  .cta{display:inline-block;background:var(--primary);color:var(--primary-ink);text-decoration:none;
+       font-weight:600;padding:14px 36px;border-radius:32px;font-size:1.02rem;
        transition:background .2s}
-  .cta:hover{background:var(--honey-dark)}
-  .cta.secondary{background:transparent;border:1.5px solid var(--border);color:var(--muted);margin-left:10px}
-  .note{font-size:.9rem;color:var(--muted);margin-top:14px}
-  section{padding:44px 0;border-top:1px solid var(--border)}
-  h2{font-size:1.6rem;font-weight:normal;margin-bottom:24px;text-align:center}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-  .feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
-  .feat h3{font-size:1.15rem;font-weight:normal;margin-bottom:8px;color:var(--honey-dark)}
-  .feat p{font-size:.98rem;color:var(--muted)}
-  .shots{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-  .shot{width:200px;border-radius:20px;border:1px solid var(--border);
-        background:var(--card);object-fit:cover;display:block}
-  footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:.9rem}
-  footer a{color:var(--honey-dark)}
+  .cta:hover{background:#267a3c;color:var(--primary-ink)}
+  .cta.secondary{background:transparent;border:1.5px solid var(--outline);color:var(--ink-variant);margin-left:10px}
+  .note{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-variant);margin-top:18px}
+  section{padding:44px 0;border-top:1px solid var(--outline-variant)}
+  h2{font-family:var(--serif);font-weight:500;letter-spacing:-.3px;font-size:2rem;margin-bottom:8px;text-align:center}
+  .section-eyebrow{text-align:center;margin-bottom:6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
+  .feat{background:var(--surface-low);border:1px solid var(--outline-variant);border-radius:20px;padding:24px}
+  .feat h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-bottom:8px;color:var(--ink)}
+  .feat p{font-size:.95rem;color:var(--ink-variant)}
+  .shots{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .shot{width:220px;border-radius:24px;border:1px solid var(--outline);
+        background:var(--surface-low);object-fit:cover;display:block}
+  footer{text-align:center;padding:40px 24px;color:var(--ink-variant);font-size:.9rem;border-top:1px solid var(--outline-variant)}
+  footer a{color:var(--primary)}
+  footer a:hover{color:#267a3c}
+  a{color:var(--primary)}
+  a:hover{color:#267a3c}
   .privacy-line{max-width:640px;margin:0 auto 8px}
+  @media (max-width:520px){
+    h1{font-size:2.2rem}
+    .cta.secondary{display:block;margin:12px auto 0;width:fit-content}
+    .shots{flex-direction:column;align-items:center}
+    .shot{width:min(280px,80vw)}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип">
-    <polygon points="50,8 86,29 86,71 50,92 14,71 14,29" fill="#e0a83a" stroke="#c8901f" stroke-width="3"/>
-    <polygon points="50,26 70,38 70,62 50,74 30,62 30,38" fill="#fbf8f0"/>
-  </svg>
+  <img class="logo" src="logo.png" alt="Логотип BeeJournal — Queen Colour Code">
   <h1>Дневник Пчеловода ПРО</h1>
   <p class="tagline">Голосовой дневник пасеки с ИИ-ассистентом Маей. Работает офлайн — руки в перчатках, телефон в кармане, всё через голос.</p>
   <a class="cta" href="#" id="rustore-link">Скачать в RuStore</a>
-  <div class="note">Приложение готовится к публикации. Ссылка появится здесь после релиза.</div>
+  <div class="note">Приложение готовится к публикации — ссылка появится здесь после релиза</div>
 </header>
 
 <div class="wrap">
 
   <section>
+    <p class="eyebrow section-eyebrow">Возможности</p>
     <h2>Зачем это пчеловоду</h2>
     <div class="grid">
       <div class="feat">
@@ -83,6 +102,7 @@
   </section>
 
   <section>
+    <p class="eyebrow section-eyebrow">Интерфейс</p>
     <h2>Как это выглядит</h2>
     <div class="shots">
       <img class="shot" src="screenshots/home.png" alt="Главный экран — сводка по пасеке">
@@ -95,7 +115,7 @@
 
 <footer>
   <p class="privacy-line"><a href="privacy-ru.html">Политика конфиденциальности</a></p>
-  <p>Разработчик: Александр Музыч· © 2026</p>
+  <p>Разработчик: Александр Музычка · © 2026</p>
   <p>По вопросам: <a href="mailto:beejournal.pro@yandex.ru">beejournal.pro@yandex.ru</a></p>
 </footer>
 
